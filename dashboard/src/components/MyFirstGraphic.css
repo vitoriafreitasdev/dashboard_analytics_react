@@ -1,0 +1,19 @@
+
+/* MyFirstGraphic.css */
+.linechart-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* opcional */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 10px;
+}
+
+.linechart-footer {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+}
