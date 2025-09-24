@@ -1,4 +1,9 @@
 // types.ts - Definições TypeScript
+
+export const monthlyProfit: Array<number> = [244566.54, 342700.87, 345600.09, 424840.76, 427843.98, 247424.43, 546721.23, 346649.09, 316239.00, 446500.85, 416300.59, 546531.62]
+
+export const monthlyActiveUsers: Array<number> = [4454, 3297, 4509, 4276, 4298, 5443, 5423, 4469, 4500, 4485, 5169, 5652]
+
 export interface User {
   id: string;
   name: string;

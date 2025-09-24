@@ -1,0 +1,16 @@
+.sidebar{
+    width: 18vw;
+
+}
+
+.menu-nav{
+    margin: 2rem;
+}
+
+.links{
+    padding: 0.5rem;
+    text-decoration: none;
+    color: #FFF;
+    font-weight: bolder;
+    cursor: pointer;
+}

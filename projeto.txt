@@ -1,6 +1,6 @@
 Ideia => Criar um Dashboard de Analytics com Gráficos
 
-Stack: React + TypeScript + D3.js ou Chart.js
+Stack: React + TypeScript + D3.js
 
 Desafios:
 
@@ -33,11 +33,17 @@ O que são: Métricas mais importantes do negócio:
 
     -Receita total
 
-    -Taxa de conversão
-
     -Usuários ativos
 
-    -Ticket médio
+    -Taxa de conversão => (Número de Conversões ÷ Número de Oportunidades) × 100
+        exemplo: 
+            1000 visitantes na página do produto
+            ↓
+            50 compram o produto
+            ↓
+            Taxa de Conversão = (50 ÷ 1000) × 100 = 5%
+
+    -Ticket médio => e é calculado dividindo o faturamento total pelo número de vendas ou transações realizadas. 
 
 Características: Números grandes, fáceis de ler, com tendência (↑↓)
 

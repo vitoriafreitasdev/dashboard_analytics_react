@@ -9,7 +9,7 @@ type propsTypes = {
     title: string,
     subtitle: string,
     total: string,
-    media: number
+    media: string
 }
 
 const ratio = 9 / 16
@@ -29,12 +29,12 @@ const MyFirstGraphic = ({data, color, title, subtitle, total, media}: propsTypes
     const height = width * ratio 
     const chartHeight = (height * 2) / 4
     // margens (espaço para labels)
-    const margin = {top: 20, right: 20, bottom: 30, left:40}
+    const margin = {top: 20, right: 20, bottom: 30, left:50}
     const innerWidth = width - margin.left - margin.right
     const innerHeight = chartHeight - margin.top - margin.bottom
 
     const max = Math.max(...data)
-
+    console.log(max)
     // Escalas 
     const yScale = d3.scaleLinear().domain([0, max]).range([innerHeight, 0])
     const xScale = d3.scaleLinear().domain([0, data.length - 1]).range([0, innerWidth])
@@ -47,6 +47,7 @@ const MyFirstGraphic = ({data, color, title, subtitle, total, media}: propsTypes
     const svgArea = areaFn(data) ?? ""
 
     const yTicks = yScale.ticks(5)
+    console.log(yTicks)
     const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
     
    
