@@ -13,7 +13,11 @@
 }
 
 .linechart-footer {
-  position: absolute;
+  text-align: center;
   bottom: 24px;
   left: 24px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
