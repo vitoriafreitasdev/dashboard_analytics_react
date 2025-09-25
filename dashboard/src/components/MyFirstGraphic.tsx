@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { useEffect, useRef, useState } from "react"
 import * as d3 from "d3"
@@ -7,14 +8,18 @@ type propsTypes = {
     data: number[],
     color: string,
     title: string,
-    subtitle: string,
     total: string,
-    media: string
+    media: string,
+    lower: number,
+    downgrade: string,
+    position: number 
+
 }
 
 const ratio = 9 / 16
 
-const MyFirstGraphic = ({data, color, title, subtitle, total, media}: propsTypes) => {
+const MyFirstGraphic = ({data, color, title, total, media, lower, downgrade, position}: propsTypes) => {
+
    
     const [width, setWidth] = useState(0)
     const containerRef = useRef<HTMLDivElement | null>(null)
@@ -47,10 +52,17 @@ const MyFirstGraphic = ({data, color, title, subtitle, total, media}: propsTypes
     const svgArea = areaFn(data) ?? ""
 
     const yTicks = yScale.ticks(5)
-    console.log(yTicks)
+   
     const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
     
-   
+   /*
+
+        colocar embaixo da div do svg:
+        o mes com a maior vendas 
+        o mes com a menor vendas
+        
+     
+  */
     
     return (
         <div className="linechart-container" ref={containerRef}>
@@ -60,7 +72,7 @@ const MyFirstGraphic = ({data, color, title, subtitle, total, media}: propsTypes
                     <stop offset="100%" stopColor={color} stopOpacity={0}/>
                 </linearGradient>
                 {/* Translada todo o gráfico para dentro das margens */}
-                <g transform={`translate(${margin.left},${margin.top})`}>
+                <g  transform={`translate(${margin.left},${margin.top})`}>
                     {/* Eixo Y */}
                     {
                         yTicks.map((tick, i) => (
@@ -99,9 +111,11 @@ const MyFirstGraphic = ({data, color, title, subtitle, total, media}: propsTypes
             </svg>
             <div className="linechart-footer">
                     <h2>{title}</h2>
-                    <p>{subtitle}</p>
                     <p>Total: {total}</p>
                     <p>Média dos ganhos: {media}</p>
+                    <p>Valor mais baixo: {lower}</p>
+                    <p>A maior queda de lucro, de um mês para o outro: {downgrade}, do mês: {months[position]} para {months[position + 1]}</p>
+                    
             </div>
         </div>
     )

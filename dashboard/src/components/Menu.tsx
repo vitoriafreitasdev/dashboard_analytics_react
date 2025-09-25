@@ -29,7 +29,12 @@ const Menu = () => {
         >
           Taxa de conversão
         </NavLink>
-
+        <NavLink 
+          className={`links`}
+          to="/averageticked" 
+        >
+          Ticked médio
+        </NavLink>
 
         
       </nav>

@@ -8,6 +8,7 @@ import App from './App.tsx'
 import Home from './routes/Home.tsx'
 import ActiveUsers from './routes/ActiveUsers.tsx'
 import ConversationRate from './routes/ConversationRate.tsx'
+import AverageTicket from './routes/AverageTicket.tsx'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/conversionrate",
         element: <ConversationRate />
+      },
+      {
+        path: "/averageticked",
+        element: <AverageTicket/>
       }
       
 

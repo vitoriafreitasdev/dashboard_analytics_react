@@ -1,0 +1,14 @@
+.active-users{
+   
+  display: flex;
+  align-items: center;
+  justify-content: center; /* opcional */
+  position: absolute;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  margin: 10px;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+}

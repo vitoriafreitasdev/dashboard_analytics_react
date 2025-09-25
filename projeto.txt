@@ -31,7 +31,7 @@ Fontes de Dados → Processamento → Visualização → Interação
 
 O que são: Métricas mais importantes do negócio:
 
-    -Receita total
+    -Receita total 
 
     -Usuários ativos
 
