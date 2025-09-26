@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import * as d3 from "d3"
-import { monthlyActiveUsers } from "../dados"
+import { monthlyActiveUsers, months } from "../dados"
 import { useRef, useEffect } from "react"
 import { Lower } from '../utils/Lower'
 import { downgrade } from '../utils/BiggerDowngrade'
@@ -12,7 +12,7 @@ import "./ActiveUsers.css"
 const ActiveUsers = () => {
     const svgRef = useRef(null)
     const data = monthlyActiveUsers
-    const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
+    
 
     useEffect(() => {
         if (!svgRef.current) return

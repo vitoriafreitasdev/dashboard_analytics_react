@@ -1,5 +1,7 @@
 // types.ts - Definições TypeScript
 
+export const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
+
 export const monthlyProfit: Array<number> = [244566.54, 342700.87, 345600.09, 424840.76, 427843.98, 247424.43, 546721.23, 346649.09, 316239.00, 446500.85, 416300.59, 546531.62]
 
 

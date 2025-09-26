@@ -1,0 +1,27 @@
+
+
+.container-ticket{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* opcional */
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    margin-top: 20px;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    box-sizing: border-box;
+}
+
+.more-info-div{
+    text-align: center;
+    bottom: 24px;
+    left: 24px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

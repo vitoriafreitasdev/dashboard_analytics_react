@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { useEffect, useRef, useState } from "react"
+import { months } from "../dados"
 import * as d3 from "d3"
 import "./MyFirstGraphic.css"
 
@@ -39,7 +40,7 @@ const MyFirstGraphic = ({data, color, title, total, media, lower, downgrade, pos
     const innerHeight = chartHeight - margin.top - margin.bottom
 
     const max = Math.max(...data)
-    console.log(max)
+
     // Escalas 
     const yScale = d3.scaleLinear().domain([0, max]).range([innerHeight, 0])
     const xScale = d3.scaleLinear().domain([0, data.length - 1]).range([0, innerWidth])
@@ -53,17 +54,9 @@ const MyFirstGraphic = ({data, color, title, total, media, lower, downgrade, pos
 
     const yTicks = yScale.ticks(5)
    
-    const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
-    
-   /*
 
-        colocar embaixo da div do svg:
-        o mes com a maior vendas 
-        o mes com a menor vendas
-        
-     
-  */
-    
+
+  
     return (
         <div className="linechart-container" ref={containerRef}>
             <svg width={width} height={height}>

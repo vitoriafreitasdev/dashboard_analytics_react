@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useRef } from "react"
-import { monthlySells, monthlyVisators } from "../dados"
+import { monthlySells, monthlyVisators, months } from "../dados"
 import { Lower } from '../utils/Lower'
 import { downgrade } from '../utils/BiggerDowngrade'
 import { calc } from '../utils/Media'
@@ -11,7 +12,7 @@ import "./ConversationRate.css"
 
 const ConversationRate = () => {
   const svgRef = useRef(null)
-  const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
+  
   const conversionRate: number[] = []
   for(let i = 0; i < 12; i++){
      const conversion = ( monthlyVisators[i] / monthlySells[i] ) * 100 
@@ -65,16 +66,7 @@ const ConversationRate = () => {
         .attr("font-weight", "bold")
     
 
-  }, [])
-
-  /*
-
-        colocar embaixo da div do svg:
-        o mes com a maior taxa de conversao 
-        o mes com a menor taxa de conversao 
-        a media de taxa
-     
-  */
+  }, [conversionRate])
   
   const lower = Lower(conversionRate)
  

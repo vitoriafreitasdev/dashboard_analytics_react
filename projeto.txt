@@ -1,3 +1,9 @@
+Responsividade
+
+abaixo de 1024 colocar o menu em cima, inves de ir na lateral
+
+########################################################
+
 Ideia => Criar um Dashboard de Analytics com Gráficos
 
 Stack: React + TypeScript + D3.js
