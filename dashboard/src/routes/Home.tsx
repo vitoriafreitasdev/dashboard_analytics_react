@@ -1,4 +1,6 @@
 
+// Home.tsx
+
 import MyFirstGraphic from '../components/MyFirstGraphic'
 import { monthlyProfit } from '../dados'
 import { calc } from '../utils/Media'

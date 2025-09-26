@@ -1,4 +1,5 @@
 
+// AverageTicket.tsx
 import { useState, useRef, useEffect } from 'react'
 import { monthlyProfit, monthlySells, months } from '../dados'
 import { Lower } from '../utils/Lower'
@@ -27,7 +28,7 @@ const AverageTicket = () => {
 
     useEffect(() => {
         if(divRef.current){
-            setWidth(divRef.current.offsetWidth / 2 )
+            setWidth(divRef.current.offsetWidth )
         }
     }, [])
 
@@ -59,7 +60,7 @@ const AverageTicket = () => {
 
     const {down_grade, position} = downgrade(ticket)
     
-
+    
     return (
         <div className='container-ticket' ref={divRef}>
             <svg width={width} height={height}>

@@ -1,5 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 
+// ActiveUsers.tsx
+
+/* eslint-disable react-hooks/exhaustive-deps */
 import * as d3 from "d3"
 import { monthlyActiveUsers, months } from "../dados"
 import { useRef, useEffect } from "react"
@@ -11,28 +13,41 @@ import "./ActiveUsers.css"
 
 const ActiveUsers = () => {
     const svgRef = useRef(null)
+    
     const data = monthlyActiveUsers
     
 
+    const containerRef = useRef<HTMLDivElement | null>(null)
+
+
     useEffect(() => {
         if (!svgRef.current) return
-        
-        // Limpa SVG existente
+        let width: number
+        let height: number
+        if (containerRef.current){
+           if(containerRef.current.offsetWidth > 553){
+                width = 700
+                height = 350
+           } else{
+                width = 500
+                height = 350
+           }
+            // Limpa SVG existente
         d3.select(svgRef.current).selectAll("*").remove()
         
         const svg = d3.select(svgRef.current)
-            .attr("width", 700)
-            .attr("height", 350)
+            .attr("width", width)
+            .attr("height", height)
 
         // Escalas CORRIGIDAS
         const xScale = d3.scaleBand()
             .domain(months.slice(0, data.length)) // ← Usar os meses como domínio
-            .range([0, 700])
+            .range([0, width])
             .padding(0.1)
 
         const yScale = d3.scaleLinear()
             .domain([0, d3.max(data) || 0]) // ← Adiciona fallback
-            .range([300, 0])
+            .range([height - 50, 0])
 
         // Barras
         svg.selectAll("rect")
@@ -71,6 +86,9 @@ const ActiveUsers = () => {
             .attr("fill", "white")
             .attr("font-size", "11px")
 
+        }
+        
+        
     }, [data, months])
    
 
@@ -80,7 +98,7 @@ const ActiveUsers = () => {
 
   const {down_grade, position} = downgrade(data)
     return (
-        <div className="active-users">
+        <div className="active-users" ref={containerRef}>
             <div>
                 <svg ref={svgRef}></svg>
             </div>

@@ -1,27 +1,54 @@
-
-
-.container-ticket{
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* opcional */
-    flex-direction: column;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-40%, -50%);
-    margin-top: 20px;
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    box-sizing: border-box;
+/* AverageTicked.css */
+.container-ticket {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px 0;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.more-info-div{
-    text-align: center;
-    bottom: 24px;
-    left: 24px;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.more-info-div {
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+@media (max-width: 1023px) {
+  .container-ticket {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 10px 0;
+    padding: 15px;
+  }
+  
+  .more-info-div {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-ticket {
+    padding: 10px;
+  }
+  
+  .more-info-div {
+    font-size: 14px;
+  }
+  
+  .more-info-div h2 {
+    font-size: 18px;
+  }
 }

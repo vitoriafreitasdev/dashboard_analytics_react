@@ -1,3 +1,4 @@
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { useEffect, useRef, useState } from "react"
@@ -28,7 +29,14 @@ const MyFirstGraphic = ({data, color, title, total, media, lower, downgrade, pos
 
     useEffect(() => {
         if (containerRef.current){
-            setWidth(containerRef.current.offsetWidth / 2)
+            if (containerRef.current.offsetWidth > 553){
+                setWidth(containerRef.current.offsetWidth )
+            }
+            else{
+                setWidth(containerRef.current.offsetWidth -20 )
+
+            }
+            
         }
     }, [])
 
@@ -54,7 +62,7 @@ const MyFirstGraphic = ({data, color, title, total, media, lower, downgrade, pos
 
     const yTicks = yScale.ticks(5)
    
-
+    console.log(width)
 
   
     return (

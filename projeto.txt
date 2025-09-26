@@ -1,6 +1,9 @@
 Responsividade
 
 abaixo de 1024 colocar o menu em cima, inves de ir na lateral
+de 600 pra arrumar os grafico ta com rolagem lateral
+
+=> arrumar agora os abaixo de 400 pixels 
 
 ########################################################
 

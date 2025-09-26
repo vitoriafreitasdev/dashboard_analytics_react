@@ -1,3 +1,5 @@
+
+// App.tsx
 import './App.css'
 import Menu from './components/Menu'
 import { Outlet } from 'react-router-dom'

@@ -1,9 +1,9 @@
 
 /* App.css */
+
 .maincontainer {
   display: flex;
   min-height: 100vh;
-  
 }
 
 /* Sidebar (Menu lateral) */
@@ -12,13 +12,14 @@
   background-color: #2c3e50;
   color: white;
   padding: 20px 0;
+  transition: all 0.3s ease;
 }
 
 /* Conteúdo principal */
 .content {
   flex: 1;
   padding: 20px;
-  
+  overflow: auto;
 }
 
 /* Estilos do menu */
@@ -64,4 +65,90 @@
   font-size: 20px;
   font-weight: bold;
   color: #3498db;
+}
+
+@media (max-width: 1023px) {
+  .maincontainer {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 100%;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .menu-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 0;
+    padding: 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  
+  .menu-nav::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .menu-item {
+    border-left: none;
+    border-bottom: 4px solid transparent;
+    padding: 12px 20px;
+    flex-direction: row;
+    text-align: center;
+    min-width: auto;
+    flex-shrink: 0;
+    border-radius: 8px;
+    margin: 0 5px;
+  }
+  
+  .menu-item.active {
+    border-left: none;
+    border-bottom: 4px solid #3498db;
+    background-color: #34495e;
+  }
+  
+  .menu-icon {
+    margin-right: 8px;
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+  
+  .sidebar-header {
+    padding: 15px 20px;
+    margin-bottom: 0;
+    text-align: center;
+    border-bottom: none;
+  }
+  
+  .sidebar-title {
+    font-size: 18px;
+  }
+  
+  .content {
+    padding: 15px;
+    flex: 1;
+    overflow: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-item {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  
+  .menu-icon {
+    font-size: 14px;
+    margin-right: 5px;
+  }
+  
+  .content {
+    padding: 10px;
+  }
 }

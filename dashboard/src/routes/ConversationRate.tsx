@@ -1,3 +1,5 @@
+
+// ConversationRate.tsx
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useRef } from "react"
@@ -12,7 +14,8 @@ import "./ConversationRate.css"
 
 const ConversationRate = () => {
   const svgRef = useRef(null)
-  
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
   const conversionRate: number[] = []
   for(let i = 0; i < 12; i++){
      const conversion = ( monthlyVisators[i] / monthlySells[i] ) * 100 
@@ -20,50 +23,65 @@ const ConversationRate = () => {
   }
 
   useEffect(() => {
-    if(!svgRef) return
+    if (!svgRef.current) return
+        let width: number
+        let height: number
+        if (containerRef.current){
+           if(containerRef.current.offsetWidth > 553){
+                width = 700
+                height = 350
+           } else{
+                width = 500
+                height = 350
+           }
 
-    d3.select(svgRef.current).selectAll("*").remove()
+            d3.select(svgRef.current).selectAll("*").remove()
 
-    const svg = d3.select(svgRef.current).attr("width", 700).attr("height", 350)
+            const svg = d3.select(svgRef.current).attr("width", width).attr("height", height)
 
-    const xScale = d3.scaleBand().domain(months.slice(0, conversionRate.length)).range([0, 700]).padding(0.1)
+            const xScale = d3.scaleBand().domain(months.slice(0, conversionRate.length)).range([0, width]).padding(0.1)
 
-    const yScale = d3.scaleLinear().domain([0, (d3.max(conversionRate) || 0) + 1]).range([350, 0])
+            const yScale = d3.scaleLinear().domain([0, (d3.max(conversionRate) || 0) + 1]).range([height - 50, 0])
 
-    // aqui desenha o grafico 
-    svg.selectAll("rect")
-      .data(conversionRate)
-      .enter()
-      .append("rect")
-      .attr("x", (_, i) => xScale(months[i]) || 0)
-      .attr("y", (d, _) => yScale(d))
-      .attr("width", xScale.bandwidth())
-      .attr("height", d => 300 - yScale(d) )
-      .attr("fill", "#646cffaa")
+            // aqui desenha o grafico 
+            svg.selectAll("rect")
+              .data(conversionRate)
+              .enter()
+              .append("rect")
+              .attr("x", (_, i) => xScale(months[i]) || 0)
+              .attr("y", (d, _) => yScale(d))
+              .attr("width", xScale.bandwidth())
+              .attr("height", d => 300 - yScale(d) )
+              .attr("fill", "#646cffaa")
 
-    svg.selectAll(".value-label")
-      .data(conversionRate)
-      .enter()
-      .append("text")
-      .text(d => d + '%')
-      .attr("x", (_, i) => (xScale(months[i]) || 0) + xScale.bandwidth() / 2 )
-      .attr("y", d => yScale(d) - 15)
-      .attr("text-anchor", "middle")
-      .attr("fill", "white")
-      .attr("font-size", "12px")
-      .attr("font-weight", "bold")
+            svg.selectAll(".value-label")
+              .data(conversionRate)
+              .enter()
+              .append("text")
+              .text(d => d + '%')
+              .attr("x", (_, i) => (xScale(months[i]) || 0) + xScale.bandwidth() / 2 )
+              .attr("y", d => yScale(d) - 15)
+              .attr("text-anchor", "middle")
+              .attr("fill", "white")
+              .attr("font-size", "12px")
+              .attr("font-weight", "bold")
 
-      svg.selectAll(".month-label")
-        .data(conversionRate)
-        .enter()
-        .append("text")
-        .text((_, i) => months[i])
-        .attr("x", (_, i) => (xScale(months[i]) || 0) + xScale.bandwidth() / 2)
-        .attr("y", 320)
-        .attr("text-anchor", "middle")
-        .attr("fill", "white")
-        .attr("font-size", "12px")
-        .attr("font-weight", "bold")
+              svg.selectAll(".month-label")
+                .data(conversionRate)
+                .enter()
+                .append("text")
+                .text((_, i) => months[i])
+                .attr("x", (_, i) => (xScale(months[i]) || 0) + xScale.bandwidth() / 2)
+                .attr("y", 320)
+                .attr("text-anchor", "middle")
+                .attr("fill", "white")
+                .attr("font-size", "12px")
+                .attr("font-weight", "bold")
+    
+          
+           
+        }
+   
     
 
   }, [conversionRate])
@@ -74,7 +92,7 @@ const ConversationRate = () => {
 
   const {down_grade, position} = downgrade(conversionRate)
   return (
-    <div className="conversation-div">
+    <div className="conversation-div" ref={containerRef}>
       <div><svg ref={svgRef}></svg></div>
       <div>
                 <h2>Taxa de conversão</h2>

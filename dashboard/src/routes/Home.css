@@ -1,26 +1,25 @@
-.home-container {
-  padding: 40px 20px;
+/* Home.css*/
+.container {
+  padding: 20px;
   width: 100%;
   min-height: calc(100vh - 80px);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .linechart-container {
   width: 100%;
   max-width: 900px;
-
   border-radius: 12px;
-  padding: 30px;
-
+  padding: 20px;
 }
 
 .chart-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
 }
 
 .linechart-footer {
@@ -28,4 +27,29 @@
   padding-top: 20px;
   border-top: 1px solid #4a5568;
   width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .container {
+    padding: 15px;
+    align-items: center;
+  }
+  
+  .linechart-container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .linechart-container {
+    padding: 10px;
+  }
+  
+  .linechart-footer {
+    font-size: 14px;
+  }
 }

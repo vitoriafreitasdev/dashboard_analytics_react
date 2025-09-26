@@ -1,26 +1,55 @@
-
 /* MyFirstGraphic.css */
 .linechart-container {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center; /* opcional */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-40%, -50%);
-  margin: 10px;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px 0;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
- 
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .linechart-footer {
   text-align: center;
-  bottom: 24px;
-  left: 24px;
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+@media (max-width: 1023px) {
+  .linechart-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 10px 0;
+    padding: 15px;
+  }
+  
+  .linechart-footer {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .linechart-container {
+    padding: 10px;
+    margin: 5px 0;
+  }
+  
+  .linechart-footer {
+    font-size: 14px;
+  }
+  
+  .linechart-footer h2 {
+    font-size: 18px;
+  }
 }
