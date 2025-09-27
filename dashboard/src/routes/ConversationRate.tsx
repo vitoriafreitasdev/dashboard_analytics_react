@@ -14,7 +14,7 @@ import "./ConversationRate.css"
 
 const ConversationRate = () => {
   const svgRef = useRef(null)
-  const containerRef = useRef<HTMLDivElement | null>(null)
+
 
   const conversionRate: number[] = []
   for(let i = 0; i < 12; i++){
@@ -24,17 +24,9 @@ const ConversationRate = () => {
 
   useEffect(() => {
     if (!svgRef.current) return
-        let width: number
-        let height: number
-        if (containerRef.current){
-           if(containerRef.current.offsetWidth > 553){
-                width = 700
-                height = 350
-           } else{
-                width = 500
-                height = 350
-           }
-
+        const width: number = 500
+        const height: number = 350
+   
             d3.select(svgRef.current).selectAll("*").remove()
 
             const svg = d3.select(svgRef.current).attr("width", width).attr("height", height)
@@ -80,7 +72,7 @@ const ConversationRate = () => {
     
           
            
-        }
+        
    
     
 
@@ -92,7 +84,7 @@ const ConversationRate = () => {
 
   const {down_grade, position} = downgrade(conversionRate)
   return (
-    <div className="conversation-div" ref={containerRef}>
+    <div className="conversation-div">
       <div><svg ref={svgRef}></svg></div>
       <div>
                 <h2>Taxa de conversão</h2>

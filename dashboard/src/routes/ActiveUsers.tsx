@@ -16,22 +16,15 @@ const ActiveUsers = () => {
     
     const data = monthlyActiveUsers
     
-
-    const containerRef = useRef<HTMLDivElement | null>(null)
-
-
     useEffect(() => {
+  
+
         if (!svgRef.current) return
-        let width: number
-        let height: number
-        if (containerRef.current){
-           if(containerRef.current.offsetWidth > 553){
-                width = 700
-                height = 350
-           } else{
-                width = 500
-                height = 350
-           }
+        const width: number = 500
+        const height: number = 350
+   
+        
+           
             // Limpa SVG existente
         d3.select(svgRef.current).selectAll("*").remove()
         
@@ -86,7 +79,7 @@ const ActiveUsers = () => {
             .attr("fill", "white")
             .attr("font-size", "11px")
 
-        }
+        
         
         
     }, [data, months])
@@ -98,8 +91,8 @@ const ActiveUsers = () => {
 
   const {down_grade, position} = downgrade(data)
     return (
-        <div className="active-users" ref={containerRef}>
-            <div>
+        <div className="active-users" >
+            <div >
                 <svg ref={svgRef}></svg>
             </div>
             <div className="data-container">

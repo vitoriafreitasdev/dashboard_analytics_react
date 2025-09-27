@@ -29,6 +29,8 @@ const MyFirstGraphic = ({data, color, title, total, media, lower, downgrade, pos
 
     useEffect(() => {
         if (containerRef.current){
+            console.log(containerRef.current.offsetWidth)
+
             if (containerRef.current.offsetWidth > 553){
                 setWidth(containerRef.current.offsetWidth )
             }
