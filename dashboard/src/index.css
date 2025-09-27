@@ -18,4 +18,12 @@ body {
   min-height: 100vh;
 }
 
+/* No seu arquivo CSS global ou no topo do componente */
+html, body {
+    overflow-x: hidden; /* Remove rolagem horizontal */
+    width: 100%;
+}
 
+* {
+    box-sizing: border-box; /* Garante consistência em todos os elementos */
+}

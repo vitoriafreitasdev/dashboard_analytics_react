@@ -10,16 +10,18 @@
   color: rgba(255, 255, 255, 0.87);
   position: relative;
   padding: 20px;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Importante: inclui padding no cálculo da largura */
+  overflow: hidden; /* Adiciona esta linha para evitar rolagem */
 }
 
 .linechart-footer {
   text-align: center;
-  margin-top: 20px;
-  width: 100%;
-  max-width: 600px;
+  margin-top: 0px;
+  max-width: 500px;
+  width: 100%; /* Garante que não ultrapasse a largura do container */
 }
 
+/* Media queries melhoradas */
 @media (max-width: 1023px) {
   .linechart-container {
     position: relative;
@@ -28,6 +30,7 @@
     transform: none;
     margin: 10px 0;
     padding: 15px;
+    overflow: hidden; /* Mantém o overflow hidden em mobile */
   }
   
   .linechart-footer {
@@ -36,6 +39,7 @@
     left: auto;
     transform: none;
     margin-top: 15px;
+    max-width: 100%; /* Ajusta para mobile */
   }
 }
 
@@ -43,13 +47,22 @@
   .linechart-container {
     padding: 10px;
     margin: 5px 0;
+    overflow: hidden;
   }
   
   .linechart-footer {
     font-size: 14px;
+    max-width: 100%;
   }
   
   .linechart-footer h2 {
     font-size: 18px;
   }
+}
+
+/* Adiciona regra para o SVG */
+.linechart-container svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
