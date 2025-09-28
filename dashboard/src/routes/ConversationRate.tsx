@@ -11,6 +11,7 @@ import { calc } from '../utils/Media'
 import * as d3 from "d3"
 
 import "./ConversationRate.css"
+import MoreInfo from "../components/MoreInfo"
 
 const ConversationRate = () => {
   const svgRef = useRef(null)
@@ -87,11 +88,7 @@ const ConversationRate = () => {
     <div className="conversation-div">
       <div><svg ref={svgRef}></svg></div>
       <div>
-                <h2>Taxa de conversão</h2>
-                <p>Mês com a maior taxa: {totalNumber}</p>
-                <p>Média: {media}</p>
-                <p>Mais baixo: {lower}</p>
-                <p>Maior queda: {down_grade}% no mês: {months[position]} para o mês: {months[position + 1]}</p>
+                <MoreInfo title="Usuários ativos" totalNumber={totalNumber.toString()} down_grade={down_grade} media={media} lower={lower} months={months} position={position}/>
             </div>
     </div>
   )

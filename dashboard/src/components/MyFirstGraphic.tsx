@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react"
 import { months } from "../dados"
 import * as d3 from "d3"
 import "./MyFirstGraphic.css"
+import MoreInfo from "./MoreInfo"
 
 type propsTypes = {
     data: number[],
@@ -113,11 +114,7 @@ const MyFirstGraphic = ({data, color, title, total, media, lower, downgrade, pos
                 </g>
             </svg>
             <div className="linechart-footer">
-                    <h2>{title}</h2>
-                    <p>Total: {total}</p>
-                    <p>Média dos ganhos: {media}</p>
-                    <p>Valor mais baixo: {lower}</p>
-                    <p>A maior queda de lucro, de um mês para o outro: {downgrade}, do mês: {months[position]} para {months[position + 1]}</p>
+                    <MoreInfo title={title} totalNumber={total} down_grade={downgrade} media={media} lower={lower} months={months} position={position}/>
                     
             </div>
         </div>

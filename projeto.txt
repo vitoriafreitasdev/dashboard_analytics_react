@@ -1,4 +1,9 @@
+
+fazer Interatividade, como selecionar os meses, se quer ver de jan a dez, ou jan a a jun, ou de jul a dez, opcao de zoom
+
+
 Responsividade
+
 
 abaixo de 1024 colocar o menu em cima, inves de ir na lateral
 de 600 pra arrumar os grafico ta com rolagem lateral

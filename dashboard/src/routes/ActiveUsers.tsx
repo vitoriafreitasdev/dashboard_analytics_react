@@ -9,6 +9,8 @@ import { Lower } from '../utils/Lower'
 import { downgrade } from '../utils/BiggerDowngrade'
 import { calc } from '../utils/Media'
 
+import MoreInfo from "../components/MoreInfo"
+
 import "./ActiveUsers.css"
 
 const ActiveUsers = () => {
@@ -90,17 +92,14 @@ const ActiveUsers = () => {
   const {media, totalNumber} = calc(data)
 
   const {down_grade, position} = downgrade(data)
+
     return (
         <div className="active-users" >
             <div >
                 <svg ref={svgRef}></svg>
             </div>
             <div className="data-container">
-                <h2>Usuários ativos</h2>
-                <p>Mês com mais usuário: {totalNumber}</p>
-                <p>Média: {media}</p>
-                <p>Mais baixo: {lower}</p>
-                <p>Maior queda de seguidores: {down_grade} no mês: {months[position]} para o mês: {months[position + 1]}</p>
+                <MoreInfo title="Usuários ativos" totalNumber={totalNumber.toString()} down_grade={down_grade} media={media} lower={lower} months={months} position={position}/>
             </div>
         </div>
     )

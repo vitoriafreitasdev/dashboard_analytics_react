@@ -7,6 +7,8 @@ import { downgrade } from '../utils/BiggerDowngrade'
 import { calc } from '../utils/Media'
 import * as d3 from "d3"
 
+import MoreInfo from '../components/MoreInfo'
+
 import "./AverageTicket.css"
 
 
@@ -28,7 +30,7 @@ const AverageTicket = () => {
 
     useEffect(() => {
         if(divRef.current){
-            setWidth(divRef.current.offsetWidth )
+            setWidth(divRef.current.offsetWidth + 100 )
         }
     }, [])
 
@@ -104,11 +106,8 @@ const AverageTicket = () => {
                 </g>
             </svg>
             <div className='more-info-div'>
-                    <h2>Ticked médio</h2>
-                    <p>Total: {totalNumber}</p>
-                    <p>Média dos ganhos: {media}</p>
-                    <p>Valor mais baixo: {lower}</p>
-                    <p>A maior queda de ticked, de um mês para o outro: {down_grade}, do mês: {months[position]} para {months[position + 1]}</p>
+                    
+                    <MoreInfo title={"Ticked médio"} totalNumber={totalNumber.toString()} down_grade={down_grade} media={media} lower={lower} months={months} position={position}/>
             </div>
         </div>
     )
